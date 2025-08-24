@@ -11,6 +11,7 @@ add_library(blocco_engine
   collision.hpp collision.cpp
   capture.hpp capture.cpp
   logging.hpp logging.cpp
+  vk_utils.hpp vk_utils.cpp
 )
 set_project_warnings(blocco_engine)
 target_link_libraries(blocco_engine PUBLIC SDL3::SDL3 Vulkan::Vulkan)
