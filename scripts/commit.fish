@@ -19,9 +19,10 @@ if test $allow_broken -eq 0
   ./scripts/test.fish; or begin; echo "Tests failed"; exit 1; end
 end
 
-# Update progress (placeholder logic; refine to prune TODO later)
-echo "# Progress" > PROGRESS.md
-echo "Scaffold updates ("(date)")" >> PROGRESS.md
+if test -x scripts/git_hook.fish
+  # Run hook before committing so its changes are included.
+  scripts/git_hook.fish
+end
 
 git add .
 if test (count $argv) -gt 0
