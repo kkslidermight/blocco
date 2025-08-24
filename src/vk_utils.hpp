@@ -23,4 +23,10 @@ VkInstance createInstance(const InstanceConfig& cfg);
 // Debug messenger handling (only used if validation enabled and extension present)
 VkDebugUtilsMessengerEXT createDebugMessenger(VkInstance instance);
 void destroyDebugMessenger(VkInstance instance, VkDebugUtilsMessengerEXT messenger);
+
+// Required device extensions (currently just swapchain)
+inline const std::vector<const char*>& deviceExtensions() {
+  static const std::vector<const char*> exts = {VK_KHR_SWAPCHAIN_EXTENSION_NAME};
+  return exts;
+}
 } // namespace vkutils
