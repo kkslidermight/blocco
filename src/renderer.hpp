@@ -17,6 +17,9 @@ private:
   void createSurface();
   void pickPhysicalDevice();
   void createLogicalDevice();
+  void createSwapchain();
+  void createImageViews();
+  void cleanupSwapchain();
   bool m_validationEnabled{false};
   bool m_headless{false};
   uint32_t m_frameIndex{0};
@@ -30,4 +33,9 @@ private:
   uint32_t m_presentQueueFamily{UINT32_MAX};
   VkQueue m_graphicsQueue{VK_NULL_HANDLE};
   VkQueue m_presentQueue{VK_NULL_HANDLE};
+  VkSwapchainKHR m_swapchain{VK_NULL_HANDLE};
+  std::vector<VkImage> m_swapchainImages;
+  std::vector<VkImageView> m_swapchainImageViews;
+  VkFormat m_swapchainFormat{VK_FORMAT_UNDEFINED};
+  VkExtent2D m_swapchainExtent{0,0};
 };
