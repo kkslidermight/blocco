@@ -14,9 +14,11 @@ add_library(blocco_engine
 )
 set_project_warnings(blocco_engine)
 target_link_libraries(blocco_engine PUBLIC SDL3::SDL3 Vulkan::Vulkan)
+target_include_directories(blocco_engine PUBLIC ${CMAKE_SOURCE_DIR}/src)
 
 add_executable(blocco main.cpp)
-target_link_libraries(blocco PRIVATE blocco_engine blocco_shaders)
+target_link_libraries(blocco PRIVATE blocco_engine)
+add_dependencies(blocco blocco_shaders)
 
 if(BLOCCO_HEADLESS)
   add_executable(blocco_headless headless.cpp)
