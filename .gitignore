@@ -1,0 +1,8 @@
+build/
+compile_commands.json
+*.spv
+.vscode/
+.clangd/
+.cache/
+.idea/
+debug/captures/*.png

@@ -1,0 +1,8 @@
+function(set_project_warnings TARGET)
+  option(BLOCCO_WARN_AS_ERROR "Treat warnings as errors" ON)
+  if(MSVC)
+    target_compile_options(${TARGET} PRIVATE /W4 $<$<BOOL:${BLOCCO_WARN_AS_ERROR}>:/WX>)
+  else()
+    target_compile_options(${TARGET} PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Wnon-virtual-dtor -Wold-style-cast -Wcast-align -Woverloaded-virtual -Wnull-dereference -Wdouble-promotion -Wformat=2 $<$<BOOL:${BLOCCO_WARN_AS_ERROR}>:-Werror>)
+  endif()
+endfunction()
