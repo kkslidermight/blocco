@@ -1,0 +1,13 @@
+# TODO
+- Implement Vulkan initialization
+- Add swapchain, render pass
+- Add pipelines and descriptor sets
+- Implement input, camera controls
+- Physics + AABB collisions
+- Text labels and font atlas
+- HUD + diagnostics
+- Capture PNG + thumbnail (real)
+- Config file load/save
+- Headless capture mode
+- Device enumeration + env snapshot
+- Git scripts & automation
